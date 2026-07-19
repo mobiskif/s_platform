@@ -1,0 +1,320 @@
+@startuml erd_database_schema
+!theme plain
+skinparam backgroundColor white
+skinparam defaultFontName Arial
+skinparam roundcorner 6
+skinparam shadowing false
+skinparam entity {
+  BackgroundColor white
+  BorderColor #7F7F7F
+  FontSize 11
+}
+skinparam package {
+  FontSize 13
+  FontStyle bold
+  BorderColor #7F7F7F
+}
+title Схема базы данных платформы — 6 модулей, 30 таблиц\n<size:11><i>UML/ER-нотация · Бизнес-план v3, раздел 3 и Приложение А</i></size>
+
+package "Модуль 1. Электронный паспорт оборудования" #DCE6F1 {
+  entity "Manufacturers" as manufacturers {
+    * manufacturer_id : TEXT
+    --
+    name : TEXT
+    country : TEXT
+    industry_segment : TEXT
+    created_at : DATE
+  }
+  entity "Clients" as clients {
+    * client_id : TEXT
+    --
+    manufacturer_id : TEXT  <<FK>>
+    name : TEXT
+    inn : TEXT
+    contact_person : TEXT
+    phone : TEXT
+    email : TEXT
+  }
+  entity "Sites" as sites {
+    * site_id : TEXT
+    --
+    client_id : TEXT  <<FK>>
+    address : TEXT
+    city : TEXT
+    region : TEXT
+  }
+  entity "EquipmentModels" as equipment_models {
+    * model_id : TEXT
+    --
+    manufacturer_id : TEXT  <<FK>>
+    model_name : TEXT
+    category : TEXT
+    default_warranty_months : INTEGER
+  }
+  entity "Equipment" as equipment {
+    * equipment_id : TEXT
+    --
+    model_id : TEXT  <<FK>>
+    client_id : TEXT  <<FK>>
+    site_id : TEXT  <<FK>>
+    serial_number : TEXT
+    ship_date : DATE
+    install_date : DATE
+    warranty_end_date : DATE
+    warranty_status : ENUM(active,expired)
+    operating_hours : INTEGER
+    status : ENUM(active,decommissioned)
+  }
+  entity "Documents" as documents {
+    * document_id : TEXT
+    --
+    equipment_id : TEXT  <<FK>>
+    doc_type : ENUM(manual,specification,certificate)
+    file_name : TEXT
+    uploaded_at : DATE
+  }
+  entity "SensorReadings" as sensor_readings {
+    * reading_id : TEXT
+    --
+    equipment_id : TEXT  <<FK>>
+    metric_name : TEXT
+    value : DECIMAL
+    unit : TEXT
+    recorded_at : DATETIME
+  }
+}
+
+package "Модуль 2. Монтаж и пусконаладка" #DCEAF7 {
+  entity "Contractors" as contractors {
+    * contractor_id : TEXT
+    --
+    name : TEXT
+    type : ENUM(staff,contractor)
+    region : TEXT
+    contact_phone : TEXT
+  }
+  entity "InstallationJobs" as installation_jobs {
+    * job_id : TEXT
+    --
+    equipment_id : TEXT  <<FK>>
+    contractor_id : TEXT  <<FK>>
+    scheduled_date : DATE
+    completed_date : DATE
+    status : ENUM(planned,in_progress,completed)
+  }
+  entity "ChecklistTemplates" as checklist_templates {
+    * template_id : TEXT
+    --
+    name : TEXT
+    equipment_category : TEXT
+  }
+  entity "ChecklistItems" as checklist_items {
+    * item_id : TEXT
+    --
+    job_id : TEXT  <<FK>>
+    template_id : TEXT  <<FK>>
+    description : TEXT
+    is_checked : BOOLEAN
+    photo_url : TEXT
+  }
+  entity "AcceptanceActs" as acceptance_acts {
+    * act_id : TEXT
+    --
+    job_id : TEXT  <<FK>>
+    signed_by : TEXT
+    signature_date : DATE
+    signature_status : ENUM(pending,signed)
+  }
+}
+
+package "Модуль 3. Заявки и выездное обслуживание (FSM)" #DCF2ED {
+  entity "Engineers" as engineers {
+    * engineer_id : TEXT
+    --
+    name : TEXT
+    skills : TEXT
+    region : TEXT
+    phone : TEXT
+  }
+  entity "SLAPolicies" as sla_policies {
+    * policy_id : TEXT
+    --
+    priority : ENUM(critical,high,standard)
+    response_time_hours : INTEGER
+    resolution_time_hours : INTEGER
+  }
+  entity "ServiceTickets" as service_tickets {
+    * ticket_id : TEXT
+    --
+    equipment_id : TEXT  <<FK>>
+    client_id : TEXT  <<FK>>
+    channel : ENUM(phone,email,portal,app)
+    policy_id : TEXT  <<FK>>
+    status : ENUM(new,assigned,in_progress,closed)
+    created_at : DATETIME
+    closed_at : DATETIME
+  }
+  entity "TicketAssignments" as ticket_assignments {
+    * assignment_id : TEXT
+    --
+    ticket_id : TEXT  <<FK>>
+    engineer_id : TEXT  <<FK>>
+    assigned_at : DATETIME
+  }
+  entity "TicketActions" as ticket_actions {
+    * action_id : TEXT
+    --
+    ticket_id : TEXT  <<FK>>
+    action_type : ENUM(note,photo,status_change,part_used)
+    description : TEXT
+    action_at : DATETIME
+  }
+}
+
+package "Модуль 4. Склад запчастей и логистика" #F7ECD9 {
+  entity "Parts" as parts {
+    * part_id : TEXT
+    --
+    name : TEXT
+    compatible_model_id : TEXT  <<FK>>
+    unit_price : DECIMAL
+    unit : TEXT
+  }
+  entity "Warehouses" as warehouses {
+    * warehouse_id : TEXT
+    --
+    name : TEXT
+    region : TEXT
+    type : ENUM(central,regional,engineer_van)
+  }
+  entity "StockLevels" as stock_levels {
+    * stock_id : TEXT
+    --
+    warehouse_id : TEXT  <<FK>>
+    part_id : TEXT  <<FK>>
+    quantity : INTEGER
+    last_updated : DATE
+  }
+  entity "PartsUsage" as parts_usage {
+    * usage_id : TEXT
+    --
+    ticket_id : TEXT  <<FK>>
+    part_id : TEXT  <<FK>>
+    quantity_used : INTEGER
+    used_at : DATE
+  }
+  entity "DemandForecast" as demand_forecast {
+    * forecast_id : TEXT
+    --
+    part_id : TEXT  <<FK>>
+    period : TEXT
+    predicted_qty : INTEGER
+    based_on_failures : INTEGER
+  }
+}
+
+package "Модуль 5. Аналитика и предиктивное обслуживание" #EBE0F5 {
+  entity "FailureStats" as failure_stats {
+    * stat_id : TEXT
+    --
+    model_id : TEXT  <<FK>>
+    component_node : TEXT
+    failure_count : INTEGER
+    period : TEXT
+  }
+  entity "MTBFRecords" as mtbf_records {
+    * record_id : TEXT
+    --
+    equipment_id : TEXT  <<FK>>
+    mtbf_hours : INTEGER
+    calculated_at : DATE
+  }
+  entity "PredictiveAlerts" as predictive_alerts {
+    * alert_id : TEXT
+    --
+    equipment_id : TEXT  <<FK>>
+    risk_score : DECIMAL
+    predicted_failure_date : DATE
+    recommended_action : TEXT
+    created_at : DATE
+  }
+  entity "ServiceCostByClient" as service_cost_by_client {
+    * record_id : TEXT
+    --
+    client_id : TEXT  <<FK>>
+    period : TEXT
+    total_cost : DECIMAL
+    ticket_count : INTEGER
+  }
+}
+
+package "Модуль 6. Обратная связь в R&D" #F7E1DB {
+  entity "Claims" as claims {
+    * claim_id : TEXT
+    --
+    ticket_id : TEXT  <<FK>>
+    equipment_id : TEXT  <<FK>>
+    component_node : TEXT
+    defect_description : TEXT
+    severity : ENUM(low,medium,high,critical)
+    status : ENUM(new,reviewed,actioned)
+    created_at : DATE
+  }
+  entity "RDReports" as rd_reports {
+    * report_id : TEXT
+    --
+    period : TEXT
+    summary : TEXT
+    created_at : DATE
+  }
+  entity "ClaimReportLink" as claim_report_link {
+    * claim_id : TEXT
+    * report_id : TEXT
+  }
+  entity "ProductImprovements" as product_improvements {
+    * improvement_id : TEXT
+    --
+    report_id : TEXT  <<FK>>
+    description : TEXT
+    status : ENUM(proposed,in_progress,implemented)
+    implemented_date : DATE
+  }
+}
+
+' связи (внешние ключи)
+clients }o--|| manufacturers : "manufacturer_id"
+sites }o--|| clients : "client_id"
+equipment_models }o--|| manufacturers : "manufacturer_id"
+equipment }o--|| equipment_models : "model_id"
+equipment }o--|| clients : "client_id"
+equipment }o--|| sites : "site_id"
+documents }o--|| equipment : "equipment_id"
+sensor_readings }o--|| equipment : "equipment_id"
+installation_jobs }o--|| equipment : "equipment_id"
+installation_jobs }o--|| contractors : "contractor_id"
+checklist_items }o--|| installation_jobs : "job_id"
+checklist_items }o--|| checklist_templates : "template_id"
+acceptance_acts }o--|| installation_jobs : "job_id"
+service_tickets }o--|| equipment : "equipment_id"
+service_tickets }o--|| clients : "client_id"
+service_tickets }o--|| sla_policies : "policy_id"
+ticket_assignments }o--|| service_tickets : "ticket_id"
+ticket_assignments }o--|| engineers : "engineer_id"
+ticket_actions }o--|| service_tickets : "ticket_id"
+parts }o--|| equipment_models : "compatible_model_id"
+stock_levels }o--|| warehouses : "warehouse_id"
+stock_levels }o--|| parts : "part_id"
+parts_usage }o--|| service_tickets : "ticket_id"
+parts_usage }o--|| parts : "part_id"
+demand_forecast }o--|| parts : "part_id"
+failure_stats }o--|| equipment_models : "model_id"
+mtbf_records }o--|| equipment : "equipment_id"
+predictive_alerts }o--|| equipment : "equipment_id"
+service_cost_by_client }o--|| clients : "client_id"
+claims }o--|| service_tickets : "ticket_id"
+claims }o--|| equipment : "equipment_id"
+claim_report_link }o--|| claims : "claim_id"
+claim_report_link }o--|| rd_reports : "report_id"
+product_improvements }o--|| rd_reports : "report_id"
+
+@enduml
