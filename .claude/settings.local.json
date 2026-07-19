@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Program Files/**)",
+      "Read(//c//**)",
+      "Bash(python3 -c \"import shutil; print\\(shutil.which\\('pandoc'\\)\\)\")",
+      "Bash(python3 -)"
+    ]
+  }
+}
