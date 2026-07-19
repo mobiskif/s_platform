@@ -10,6 +10,7 @@ BEGIN;
 -- ------------------------------------------------------------
 -- ENUM-типы
 -- ------------------------------------------------------------
+CREATE TYPE equipment_sale_channel_enum AS ENUM ('direct', 'dealer');
 CREATE TYPE equipment_warranty_status_enum AS ENUM ('active', 'expired');
 CREATE TYPE equipment_status_enum AS ENUM ('active', 'decommissioned');
 CREATE TYPE documents_doc_type_enum AS ENUM ('manual', 'specification', 'certificate');
@@ -73,12 +74,26 @@ CREATE TABLE equipment_models (
 );
 COMMENT ON TABLE equipment_models IS 'Модели оборудования (справочник)';
 
+CREATE TABLE dealers (
+    dealer_id TEXT NOT NULL,
+    manufacturer_id TEXT,
+    name TEXT,
+    region TEXT,
+    contact_phone TEXT,
+    contact_email TEXT
+    , CONSTRAINT pk_dealers PRIMARY KEY (dealer_id)
+    , CONSTRAINT fk_dealers_manufacturer_id FOREIGN KEY (manufacturer_id) REFERENCES manufacturers (manufacturer_id) ON DELETE RESTRICT
+);
+COMMENT ON TABLE dealers IS 'Дилеры (партнёры по продаже оборудования)';
+
 CREATE TABLE equipment (
     equipment_id TEXT NOT NULL,
     model_id TEXT,
     client_id TEXT,
     site_id TEXT,
     serial_number TEXT,
+    sale_channel equipment_sale_channel_enum,
+    dealer_id TEXT,
     ship_date DATE,
     install_date DATE,
     warranty_end_date DATE,
@@ -89,6 +104,7 @@ CREATE TABLE equipment (
     , CONSTRAINT fk_equipment_model_id FOREIGN KEY (model_id) REFERENCES equipment_models (model_id) ON DELETE RESTRICT
     , CONSTRAINT fk_equipment_client_id FOREIGN KEY (client_id) REFERENCES clients (client_id) ON DELETE RESTRICT
     , CONSTRAINT fk_equipment_site_id FOREIGN KEY (site_id) REFERENCES sites (site_id) ON DELETE RESTRICT
+    , CONSTRAINT fk_equipment_dealer_id FOREIGN KEY (dealer_id) REFERENCES dealers (dealer_id) ON DELETE RESTRICT
 );
 COMMENT ON TABLE equipment IS 'Оборудование (электронный паспорт)';
 

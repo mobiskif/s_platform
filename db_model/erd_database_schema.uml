@@ -51,6 +51,15 @@ package "Модуль 1. Электронный паспорт оборудов�
     category : TEXT
     default_warranty_months : INTEGER
   }
+  entity "Dealers" as dealers {
+    * dealer_id : TEXT
+    --
+    manufacturer_id : TEXT  <<FK>>
+    name : TEXT
+    region : TEXT
+    contact_phone : TEXT
+    contact_email : TEXT
+  }
   entity "Equipment" as equipment {
     * equipment_id : TEXT
     --
@@ -58,6 +67,8 @@ package "Модуль 1. Электронный паспорт оборудов�
     client_id : TEXT  <<FK>>
     site_id : TEXT  <<FK>>
     serial_number : TEXT
+    sale_channel : ENUM(direct,dealer)
+    dealer_id : TEXT  <<FK>>
     ship_date : DATE
     install_date : DATE
     warranty_end_date : DATE
@@ -285,9 +296,11 @@ package "Модуль 6. Обратная связь в R&D" #F7E1DB {
 clients }o--|| manufacturers : "manufacturer_id"
 sites }o--|| clients : "client_id"
 equipment_models }o--|| manufacturers : "manufacturer_id"
+dealers }o--|| manufacturers : "manufacturer_id"
 equipment }o--|| equipment_models : "model_id"
 equipment }o--|| clients : "client_id"
 equipment }o--|| sites : "site_id"
+equipment }o--|| dealers : "dealer_id"
 documents }o--|| equipment : "equipment_id"
 sensor_readings }o--|| equipment : "equipment_id"
 installation_jobs }o--|| equipment : "equipment_id"
