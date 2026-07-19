@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Склад запчастей и логистика — Industrial Service Hub</title>
+<meta name="description" content="Учёт ЗИП на складах и у инженеров, прогноз потребности по статистике отказов — модуль 4 демо-прототипа платформы.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">
+        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+      </span>
+      <span>
+        Industrial Service Hub
+        <span class="brand-sub">Демо-прототип платформы</span>
+      </span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="siteNav">
+      <a href="index.html" class="nav-link">Главная</a>
+      <a href="passport.html" class="nav-link">Паспорт оборудования</a>
+      <a href="installation.html" class="nav-link">Монтаж и ПНР</a>
+      <a href="requests.html" class="nav-link">Заявки и сервис</a>
+      <a href="warehouse.html" class="nav-link active">Склад и логистика</a>
+      <a href="analytics.html" class="nav-link">Аналитика</a>
+      <a href="rnd.html" class="nav-link">R&amp;D</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container hero-inner hero-wide">
+      <div class="breadcrumb">
+        <a href="index.html">Главная</a>
+        <span class="sep">/</span>
+        <span>Склад запчастей и логистика</span>
+      </div>
+      <div class="module-kicker">
+        <span class="module-icon">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5"/><path d="M12 12v9"/></svg>
+        </span>
+        <span class="module-index">Модуль 04</span>
+      </div>
+      <h1>Склад запчастей и логистика</h1>
+      <p class="lede">Учёт ЗИП на складах и у инженеров, привязанный к статистике отказов — вместо ручных таблиц и заказов «на глаз».</p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="meta-grid">
+        <div class="meta-card meta-audience">
+          <div class="meta-label">
+            <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>
+            Целевая аудитория
+          </div>
+          <p>Отделы логистики, менеджеры по запчастям, сервисные инженеры</p>
+        </div>
+        <div class="meta-card meta-problem">
+          <div class="meta-label">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2 1 21h22z"/><path d="M12 9v5"/><path d="M12 17.5v.01"/></svg>
+            Проблема
+          </div>
+          <p>Дефицит нужных деталей или избыточные запасы, нет связи между статистикой поломок и закупками</p>
+        </div>
+        <div class="meta-card meta-value">
+          <div class="meta-label">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+            Ценность для производителя
+          </div>
+          <p>Оптимизация складских запасов, развитие продаж оригинальных запчастей</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Ключевые экранные элементы</span>
+        <h2>Что показывает модуль</h2>
+      </div>
+      <div class="feature-list">
+        <div class="feature-item">
+          <span class="f-check"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <p>Учёт ЗИП у инженеров и на региональных складах, привязка запчастей к моделям оборудования</p>
+        </div>
+        <div class="feature-item">
+          <span class="f-check"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <p>Прогноз потребности в запчастях на основе статистики отказов</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+
+      <div class="demo-block">
+        <div class="demo-block-head">
+          <h3>Демо: остатки ЗИП по позициям</h3>
+          <span class="badge badge-cyan">Тестовые данные</span>
+        </div>
+        <div class="demo-block-body">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Деталь</th>
+                <th>Модель</th>
+                <th>На складе</th>
+                <th>У инженеров</th>
+                <th>Прогноз потребности / мес.</th>
+                <th>Статус</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-alert">
+                <td class="cell-strong">Подшипник ЦН-40-Б12</td>
+                <td class="cell-muted">ЦН-40</td>
+                <td>4 шт</td>
+                <td>2 шт</td>
+                <td>8 шт</td>
+                <td><span class="badge badge-red"><svg class="icon" viewBox="0 0 24 24" style="width:12px"><path d="M12 2 1 21h22z"/><path d="M12 9v5"/><path d="M12 17.5v.01"/></svg>Дефицит</span></td>
+              </tr>
+              <tr>
+                <td class="cell-strong">Уплотнительное кольцо КВ-12-07</td>
+                <td class="cell-muted">КВ-12</td>
+                <td>12 шт</td>
+                <td>5 шт</td>
+                <td>6 шт</td>
+                <td><span class="badge badge-green">Норма</span></td>
+              </tr>
+              <tr class="row-alert">
+                <td class="cell-strong">Торцевое уплотнение ЦН-40-У3</td>
+                <td class="cell-muted">ЦН-40</td>
+                <td>1 шт</td>
+                <td>0 шт</td>
+                <td>5 шт</td>
+                <td><span class="badge badge-red"><svg class="icon" viewBox="0 0 24 24" style="width:12px"><path d="M12 2 1 21h22z"/><path d="M12 9v5"/><path d="M12 17.5v.01"/></svg>Дефицит</span></td>
+              </tr>
+              <tr>
+                <td class="cell-strong">Ремкомплект клапанов КВ-8</td>
+                <td class="cell-muted">КВ-8</td>
+                <td>9 шт</td>
+                <td>3 шт</td>
+                <td>4 шт</td>
+                <td><span class="badge badge-green">Норма</span></td>
+              </tr>
+              <tr>
+                <td class="cell-strong">Датчик вибрации VS-200</td>
+                <td class="cell-muted">ЦН-40, КВ-12</td>
+                <td>15 шт</td>
+                <td>6 шт</td>
+                <td>3 шт</td>
+                <td><span class="badge badge-orange">Избыток</span></td>
+              </tr>
+              <tr>
+                <td class="cell-strong">Масляный фильтр OF-40</td>
+                <td class="cell-muted">ЦН-40</td>
+                <td>22 шт</td>
+                <td>10 шт</td>
+                <td>9 шт</td>
+                <td><span class="badge badge-green">Норма</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="grid-2 mt-32">
+        <div class="card card-pad">
+          <div class="hstack" style="justify-content:space-between">
+            <div class="hstack">
+              <span class="m-icon" style="width:40px;height:40px;background:var(--red-50);color:var(--red)"><svg class="icon" viewBox="0 0 24 24" style="width:20px"><path d="M12 2 1 21h22z"/><path d="M12 9v5"/><path d="M12 17.5v.01"/></svg></span>
+              <div>
+                <h3 style="font-size:15px">Подшипник ЦН-40-Б12</h3>
+                <p style="font-size:13px;color:var(--text-muted)">Прогноз выше остатка на 4 шт в этом месяце</p>
+              </div>
+            </div>
+            <span class="btn btn-ghost" style="padding:8px 16px;font-size:13px">Заказать</span>
+          </div>
+        </div>
+        <div class="card card-pad">
+          <div class="hstack" style="justify-content:space-between">
+            <div class="hstack">
+              <span class="m-icon" style="width:40px;height:40px;background:var(--red-50);color:var(--red)"><svg class="icon" viewBox="0 0 24 24" style="width:20px"><path d="M12 2 1 21h22z"/><path d="M12 9v5"/><path d="M12 17.5v.01"/></svg></span>
+              <div>
+                <h3 style="font-size:15px">Торцевое уплотнение ЦН-40-У3</h3>
+                <p style="font-size:13px;color:var(--text-muted)">На складе 1 шт, у инженеров нет — риск простоя</p>
+              </div>
+            </div>
+            <span class="btn btn-ghost" style="padding:8px 16px;font-size:13px">Заказать</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>Industrial Service Hub — демонстрационный прототип на основе бизнес-плана v3</p>
+    <p class="footer-meta">Прототип · Июль 2026</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

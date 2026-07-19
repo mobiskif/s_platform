@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Industrial Service Hub — сервисная IT-платформа для производителей оборудования</title>
+<meta name="description" content="Кликабельный демо-прототип IT-платформы монтажа и сервисного обслуживания оборудования: 6 модулей от электронного паспорта техники до обратной связи в R&D.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">
+        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+      </span>
+      <span>
+        Industrial Service Hub
+        <span class="brand-sub">Демо-прототип платформы</span>
+      </span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="siteNav">
+      <a href="index.html" class="nav-link active">Главная</a>
+      <a href="passport.html" class="nav-link">Паспорт оборудования</a>
+      <a href="installation.html" class="nav-link">Монтаж и ПНР</a>
+      <a href="requests.html" class="nav-link">Заявки и сервис</a>
+      <a href="warehouse.html" class="nav-link">Склад и логистика</a>
+      <a href="analytics.html" class="nav-link">Аналитика</a>
+      <a href="rnd.html" class="nav-link">R&amp;D</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <span class="eyebrow">Демо-прототип · для интервью и пилотов</span>
+      <h1>Единая сервисная IT-платформа для производителей оборудования</h1>
+      <p class="lede">Весь путь техники — от монтажа до модернизации по данным R&amp;D — в одной системе, а не в разрозненных таблицах, звонках и почте дилеров.</p>
+      <div class="problem-line">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12 2 1 21h22z"/><path d="M12 9v5"/><path d="M12 17.5v.01"/></svg>
+        Постпродажная слепая зона: как только оборудование покидает завод, производитель теряет данные о его судьбе
+      </div>
+      <div class="hero-actions">
+        <a href="#modules" class="btn btn-primary">
+          Смотреть модули платформы
+          <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#how" class="btn btn-ghost">Как это работает</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="modules">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">6 модулей платформы</span>
+        <h2>От монтажа до R&amp;D — весь жизненный цикл оборудования под контролем</h2>
+        <p>Каждый модуль — отдельная вкладка прототипа. Кликните по карточке, чтобы открыть демо-экран.</p>
+      </div>
+
+      <div class="module-grid">
+
+        <a href="passport.html" class="module-card">
+          <span class="module-num">01</span>
+          <span class="m-icon">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M7 2h7l5 5v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M14 2v5h5"/><path d="M9 13h6"/><path d="M9 17h6"/><path d="M9 9h2"/></svg>
+          </span>
+          <h3>Электронный паспорт оборудования</h3>
+          <p>Карточка на каждую единицу техники: история обслуживания, наработка и техдокументация.</p>
+          <span class="m-link">Открыть вкладку <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+        </a>
+
+        <a href="installation.html" class="module-card">
+          <span class="module-num">02</span>
+          <span class="m-icon">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M21 7l-3-3-2.5 2.5a4 4 0 1 0-5 5L3 19l2 2 7.5-7.5a4 4 0 1 0 5-5L21 7z"/></svg>
+          </span>
+          <h3>Монтаж и пусконаладка</h3>
+          <p>Планирование выезда бригад, электронные чек-листы приёмки и акты на объекте.</p>
+          <span class="m-link">Открыть вкладку <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+        </a>
+
+        <a href="requests.html" class="module-card">
+          <span class="module-num">03</span>
+          <span class="m-icon">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v10l-3 6H7l-3-6z"/><path d="M4 14h5l1 3h4l1-3h5"/></svg>
+          </span>
+          <h3>Заявки и выездное обслуживание</h3>
+          <p>Приём заявок, диспетчеризация инженеров и контроль SLA в реальном времени.</p>
+          <span class="m-link">Открыть вкладку <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+        </a>
+
+        <a href="warehouse.html" class="module-card">
+          <span class="module-num">04</span>
+          <span class="m-icon">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5"/><path d="M12 12v9"/></svg>
+          </span>
+          <h3>Склад запчастей и логистика</h3>
+          <p>Учёт ЗИП на складах и у инженеров, прогноз потребности по статистике отказов.</p>
+          <span class="m-link">Открыть вкладку <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+        </a>
+
+        <a href="analytics.html" class="module-card">
+          <span class="module-num">05</span>
+          <span class="m-icon">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg>
+          </span>
+          <h3>Аналитика и предиктивное обслуживание</h3>
+          <p>Дашборды по отказам всего парка и предиктивные подсказки по остаточному ресурсу.</p>
+          <span class="m-link">Открыть вкладку <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+        </a>
+
+        <a href="rnd.html" class="module-card">
+          <span class="module-num">06</span>
+          <span class="m-icon">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.3h6c0-1.1.4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
+          </span>
+          <h3>Обратная связь в R&amp;D</h3>
+          <p>Замыкает цикл «поломка → аналитика → R&amp;D → улучшение продукта».</p>
+          <span class="m-link">Открыть вкладку <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="how" class="section-tight">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Логика продукта</span>
+        <h2>Как это работает</h2>
+        <p>Данные, собранные на одном этапе жизненного цикла оборудования, автоматически становятся полезны на следующем.</p>
+      </div>
+
+      <div class="steps-row">
+        <div class="step-item">
+          <span class="step-num">1</span>
+          <h4>Монтаж</h4>
+          <p>Бригада вводит оборудование в эксплуатацию по чек-листу — техника автоматически встаёт «на баланс» с полным паспортом.</p>
+        </div>
+        <div class="step-item">
+          <span class="step-num">2</span>
+          <h4>Сервис</h4>
+          <p>Заявки, выезды и ремонты фиксируются в единой истории — вместо звонков, почты и таблиц у разных дилеров.</p>
+        </div>
+        <div class="step-item">
+          <span class="step-num">3</span>
+          <h4>Аналитика</h4>
+          <p>Данные по всему установленному парку собираются в дашборды: топ отказов, простои, остаточный ресурс.</p>
+        </div>
+        <div class="step-item">
+          <span class="step-num">4</span>
+          <h4>R&amp;D</h4>
+          <p>Рекламации и статистика отказов превращаются в структурированные инсайты для конструкторов — брак не повторяется.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="note-block">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16v.01"/></svg>
+        <p>Это визуальная демонстрация концепции, а не рабочая система: реального бэкенда, базы данных и аутентификации нет — все данные на экранах вымышленные (mock data), зашитые в статический HTML/JS.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>Industrial Service Hub — демонстрационный прототип на основе бизнес-плана v3</p>
+    <p class="footer-meta">Прототип · Июль 2026</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

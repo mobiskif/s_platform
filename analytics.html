@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Аналитика и предиктивное обслуживание — Industrial Service Hub</title>
+<meta name="description" content="Дашборды по отказам всего установленного парка и расчёт остаточного ресурса — модуль 5 демо-прототипа платформы.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">
+        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+      </span>
+      <span>
+        Industrial Service Hub
+        <span class="brand-sub">Демо-прототип платформы</span>
+      </span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="siteNav">
+      <a href="index.html" class="nav-link">Главная</a>
+      <a href="passport.html" class="nav-link">Паспорт оборудования</a>
+      <a href="installation.html" class="nav-link">Монтаж и ПНР</a>
+      <a href="requests.html" class="nav-link">Заявки и сервис</a>
+      <a href="warehouse.html" class="nav-link">Склад и логистика</a>
+      <a href="analytics.html" class="nav-link active">Аналитика</a>
+      <a href="rnd.html" class="nav-link">R&amp;D</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container hero-inner hero-wide">
+      <div class="breadcrumb">
+        <a href="index.html">Главная</a>
+        <span class="sep">/</span>
+        <span>Аналитика и предиктивное обслуживание</span>
+      </div>
+      <div class="module-kicker">
+        <span class="module-icon">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg>
+        </span>
+        <span class="module-index">Модуль 05</span>
+      </div>
+      <h1>Аналитика и предиктивное обслуживание</h1>
+      <p class="lede">Сквозная картина по всему установленному парку — вместо данных, которые оседают у дилеров и не доходят до производителя.</p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="meta-grid">
+        <div class="meta-card meta-audience">
+          <div class="meta-label">
+            <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>
+            Целевая аудитория
+          </div>
+          <p>Топ-менеджмент, руководители сервисных департаментов</p>
+        </div>
+        <div class="meta-card meta-problem">
+          <div class="meta-label">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2 1 21h22z"/><path d="M12 9v5"/><path d="M12 17.5v.01"/></svg>
+            Проблема
+          </div>
+          <p>Нет сквозной аналитики по дефектам, сервисные данные оседают у дилеров и не возвращаются производителю</p>
+        </div>
+        <div class="meta-card meta-value">
+          <div class="meta-label">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+            Ценность для производителя
+          </div>
+          <p>Переход от реактивного ремонта к предиктивному, ниже затраты на гарантийный ремонт</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Ключевые экранные элементы</span>
+        <h2>Что показывает модуль</h2>
+      </div>
+      <div class="feature-list">
+        <div class="feature-item">
+          <span class="f-check"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <p>Дашборды по всему установленному парку: топ отказов по узлам/моделям/регионам, наработка на отказ, стоимость сервиса по клиенту</p>
+        </div>
+        <div class="feature-item">
+          <span class="f-check"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <p>При наличии датчиков/IoT — расчёт остаточного ресурса и уведомления о плановом обслуживании до поломки</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-label">Наработка на отказ (MTBF)</div>
+          <div class="kpi-value">3 120 ч</div>
+          <span class="kpi-trend down"><svg class="icon" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>+9% к прошлому кварталу</span>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Простои по парку за квартал</div>
+          <div class="kpi-value">111 ч</div>
+          <span class="kpi-trend down"><svg class="icon" viewBox="0 0 24 24"><path d="M7 17l10-10"/><path d="M7 7h10v10"/></svg>-18% к прошлому кварталу</span>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Затраты на гарантийный ремонт</div>
+          <div class="kpi-value">1,4 млн ₽</div>
+          <span class="kpi-trend down"><svg class="icon" viewBox="0 0 24 24"><path d="M7 17l10-10"/><path d="M7 7h10v10"/></svg>-12% к прошлому кварталу</span>
+        </div>
+      </div>
+
+      <div class="grid-2 mt-32">
+
+        <div class="demo-block">
+          <div class="demo-block-head"><h3>Топ-5 отказов по узлам</h3><span class="badge badge-cyan">За квартал</span></div>
+          <div class="demo-block-body chart-card">
+            <div class="bar-chart">
+              <div class="bar-col">
+                <span class="bar-value">32</span>
+                <div class="bar" style="height:130px"></div>
+                <span class="bar-label">Подшипники</span>
+              </div>
+              <div class="bar-col">
+                <span class="bar-value">24</span>
+                <div class="bar" style="height:98px"></div>
+                <span class="bar-label">Уплотнения</span>
+              </div>
+              <div class="bar-col">
+                <span class="bar-value">15</span>
+                <div class="bar" style="height:61px"></div>
+                <span class="bar-label">Электро&shy;двигатель</span>
+              </div>
+              <div class="bar-col">
+                <span class="bar-value">11</span>
+                <div class="bar" style="height:45px"></div>
+                <span class="bar-label">Клапаны</span>
+              </div>
+              <div class="bar-col">
+                <span class="bar-value">8</span>
+                <div class="bar" style="height:33px"></div>
+                <span class="bar-label">Датчики</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-block">
+          <div class="demo-block-head"><h3>Динамика простоев по месяцам</h3><span class="badge badge-green">Тренд к снижению</span></div>
+          <div class="demo-block-body">
+            <div class="line-chart-wrap">
+              <svg viewBox="0 0 460 175" style="width:100%;height:auto">
+                <line x1="30" y1="150" x2="440" y2="150" stroke="var(--border)" stroke-width="1"/>
+                <path d="M30,60 112,40 194,80 276,20 358,55 440,90 L440,150 30,150 Z" fill="var(--cyan-50)" stroke="none"/>
+                <polyline points="30,60 112,40 194,80 276,20 358,55 440,90" fill="none" stroke="var(--cyan)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+                <circle cx="30" cy="60" r="4" fill="var(--cyan-strong)"/>
+                <circle cx="112" cy="40" r="4" fill="var(--cyan-strong)"/>
+                <circle cx="194" cy="80" r="4" fill="var(--cyan-strong)"/>
+                <circle cx="276" cy="20" r="4" fill="var(--cyan-strong)"/>
+                <circle cx="358" cy="55" r="4" fill="var(--cyan-strong)"/>
+                <circle cx="440" cy="90" r="4" fill="var(--cyan-strong)"/>
+                <text x="30" y="168" font-size="11" fill="var(--text-muted)" text-anchor="middle">Фев</text>
+                <text x="112" y="168" font-size="11" fill="var(--text-muted)" text-anchor="middle">Мар</text>
+                <text x="194" y="168" font-size="11" fill="var(--text-muted)" text-anchor="middle">Апр</text>
+                <text x="276" y="168" font-size="11" fill="var(--text-muted)" text-anchor="middle">Май</text>
+                <text x="358" y="168" font-size="11" fill="var(--text-muted)" text-anchor="middle">Июн</text>
+                <text x="440" y="168" font-size="11" fill="var(--text-muted)" text-anchor="middle">Июл</text>
+              </svg>
+            </div>
+            <p style="font-size:13px;color:var(--text-muted);margin-top:8px">Часы простоя оборудования по парку, помесячно</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="grid-2 mt-32">
+
+        <div class="demo-block">
+          <div class="demo-block-head"><h3>Состояние установленного парка</h3></div>
+          <div class="demo-block-body">
+            <div class="donut-wrap">
+              <div class="donut" style="background: conic-gradient(var(--green) 0% 72%, var(--orange) 72% 92%, var(--red) 92% 100%)">
+                <div class="donut-hole"><strong>148</strong><span>единиц</span></div>
+              </div>
+              <div class="donut-legend">
+                <div class="legend-row"><span class="legend-dot" style="background:var(--green)"></span>В норме — 106 (72%)</div>
+                <div class="legend-row"><span class="legend-dot" style="background:var(--orange)"></span>Требует внимания — 30 (20%)</div>
+                <div class="legend-row"><span class="legend-dot" style="background:var(--red)"></span>Критично — 12 (8%)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-block">
+          <div class="demo-block-head"><h3>Стоимость сервиса по клиенту</h3><span class="badge badge-cyan">Топ-4</span></div>
+          <div class="demo-block-body">
+            <table class="data-table">
+              <thead><tr><th>Клиент</th><th>Заявок</th><th>Стоимость сервиса</th></tr></thead>
+              <tbody>
+                <tr><td class="cell-strong">ООО «Северная Сталь»</td><td class="cell-muted">14</td><td>412 000 ₽</td></tr>
+                <tr><td class="cell-strong">АО «Прикамье-Хим»</td><td class="cell-muted">9</td><td>287 500 ₽</td></tr>
+                <tr><td class="cell-strong">ООО «Балтийский Литейный»</td><td class="cell-muted">6</td><td>164 000 ₽</td></tr>
+                <tr><td class="cell-strong">ИП Реутов</td><td class="cell-muted">3</td><td>58 200 ₽</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="section-head mt-32">
+        <span class="eyebrow">Предиктивное обслуживание</span>
+        <h2>Остаточный ресурс по датчикам IoT</h2>
+      </div>
+
+      <div class="grid-2">
+        <div class="card card-pad resource-card">
+          <div class="card-title-row"><h3>Насос ЦН-40 · 8X-990-AQ</h3><span class="badge badge-cyan">«Северная Сталь»</span></div>
+          <div class="stat-row"><span class="stat-num">80%</span><span class="stat-sub">14 250 / 17 800 ч</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:80%"></div></div>
+          <div class="resource-date">
+            <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M3 10h18"/></svg>
+            Плановое ТО рекомендовано к <strong>03.09.2026</strong> (через ~46 дней)
+          </div>
+        </div>
+        <div class="card card-pad resource-card">
+          <div class="card-title-row"><h3>Компрессор КВ-12</h3><span class="badge badge-orange">«Прикамье-Хим»</span></div>
+          <div class="stat-row"><span class="stat-num">82%</span><span class="stat-sub">9 800 / 12 000 ч</span></div>
+          <div class="progress-track"><div class="progress-fill orange" style="width:82%"></div></div>
+          <div class="resource-date">
+            <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M3 10h18"/></svg>
+            Плановое ТО рекомендовано к <strong>21.08.2026</strong> (через ~33 дня)
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>Industrial Service Hub — демонстрационный прототип на основе бизнес-плана v3</p>
+    <p class="footer-meta">Прототип · Июль 2026</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

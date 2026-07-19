@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Монтаж и пусконаладка — Industrial Service Hub</title>
+<meta name="description" content="Планирование выезда монтажных бригад, электронные чек-листы приёмки и подписание актов — модуль 2 демо-прототипа платформы.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">
+        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+      </span>
+      <span>
+        Industrial Service Hub
+        <span class="brand-sub">Демо-прототип платформы</span>
+      </span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="siteNav">
+      <a href="index.html" class="nav-link">Главная</a>
+      <a href="passport.html" class="nav-link">Паспорт оборудования</a>
+      <a href="installation.html" class="nav-link active">Монтаж и ПНР</a>
+      <a href="requests.html" class="nav-link">Заявки и сервис</a>
+      <a href="warehouse.html" class="nav-link">Склад и логистика</a>
+      <a href="analytics.html" class="nav-link">Аналитика</a>
+      <a href="rnd.html" class="nav-link">R&amp;D</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container hero-inner hero-wide">
+      <div class="breadcrumb">
+        <a href="index.html">Главная</a>
+        <span class="sep">/</span>
+        <span>Монтаж и пусконаладка</span>
+      </div>
+      <div class="module-kicker">
+        <span class="module-icon">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M21 7l-3-3-2.5 2.5a4 4 0 1 0-5 5L3 19l2 2 7.5-7.5a4 4 0 1 0 5-5L21 7z"/></svg>
+        </span>
+        <span class="module-index">Модуль 02</span>
+      </div>
+      <h1>Монтаж и пусконаладка</h1>
+      <p class="lede">Единый стандарт ввода оборудования в эксплуатацию — для своих бригад и подрядчиков, с контролем из центрального офиса.</p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="meta-grid">
+        <div class="meta-card meta-audience">
+          <div class="meta-label">
+            <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>
+            Целевая аудитория
+          </div>
+          <p>Монтажные бригады (штатные и подрядчики), руководители сервисных служб</p>
+        </div>
+        <div class="meta-card meta-problem">
+          <div class="meta-label">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2 1 21h22z"/><path d="M12 9v5"/><path d="M12 17.5v.01"/></svg>
+            Проблема
+          </div>
+          <p>Нет единого стандарта монтажа, сложно контролировать качество пусконаладки из центрального офиса</p>
+        </div>
+        <div class="meta-card meta-value">
+          <div class="meta-label">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+            Ценность для производителя
+          </div>
+          <p>Гарантия качественного ввода в эксплуатацию, меньше поломок из-за ошибок монтажа</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Ключевые экранные элементы</span>
+        <h2>Что показывает модуль</h2>
+      </div>
+      <div class="feature-list">
+        <div class="feature-item">
+          <span class="f-check"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <p>Планирование выезда монтажной бригады (своей или подрядчика), назначение исполнителей</p>
+        </div>
+        <div class="feature-item">
+          <span class="f-check"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <p>Электронные чек-листы приёмки, фотофиксация, подписание акта на объекте</p>
+        </div>
+        <div class="feature-item">
+          <span class="f-check"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <p>Автоматическая постановка оборудования «на баланс» в системе сразу после пуска</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+
+      <div class="demo-block">
+        <div class="demo-block-head">
+          <h3>Демо: план монтажей и приёмка</h3>
+          <span class="badge badge-cyan">Тестовые данные · нажмите на монтаж слева</span>
+        </div>
+        <div class="demo-block-body">
+          <div class="two-col">
+
+            <div class="stack" style="gap:12px">
+
+              <div class="card card-pad is-active" data-install-item="a" style="cursor:pointer">
+                <div class="card-title-row">
+                  <h3 style="font-size:15px">Насос ЦН-40 · «Северная Сталь»</h3>
+                  <span class="badge badge-green">Завершён</span>
+                </div>
+                <p style="font-size:13.5px;color:var(--text-secondary)">Бригада №2 (штатная) · 18.11.2023 · Челябинск</p>
+              </div>
+
+              <div class="card card-pad" data-install-item="b" style="cursor:pointer">
+                <div class="card-title-row">
+                  <h3 style="font-size:15px">Компрессор КВ-12 · «Прикамье-Хим»</h3>
+                  <span class="badge badge-orange">В процессе</span>
+                </div>
+                <p style="font-size:13.5px;color:var(--text-secondary)">Подрядчик ООО «МонтажСервис» · план 22.07.2026 · Пермь</p>
+              </div>
+
+              <div class="card card-pad" data-install-item="c" style="cursor:pointer">
+                <div class="card-title-row">
+                  <h3 style="font-size:15px">Насос ЦН-40 · «Балтийский Литейный»</h3>
+                  <span class="badge badge-gray">Запланирован</span>
+                </div>
+                <p style="font-size:13.5px;color:var(--text-secondary)">Бригада №1 (штатная) · план 28.07.2026 · Санкт-Петербург</p>
+              </div>
+
+              <div class="card card-pad" data-install-item="d" style="cursor:pointer">
+                <div class="card-title-row">
+                  <h3 style="font-size:15px">Компрессор КВ-8 · ИП Реутов</h3>
+                  <span class="badge badge-gray">Запланирован</span>
+                </div>
+                <p style="font-size:13.5px;color:var(--text-secondary)">Бригада №2 (штатная) · план 04.08.2026 · Казань</p>
+              </div>
+
+            </div>
+
+            <div class="card card-pad">
+
+              <div data-install-detail="a">
+                <div class="card-title-row"><h3>Чек-лист приёмки — Насос ЦН-40</h3></div>
+                <div class="checklist">
+                  <div class="checklist-item done"><span class="cl-box"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span>Проверка выравнивания и крепления фундамента</span></div>
+                  <div class="checklist-item done"><span class="cl-box"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span>Подключение электропитания и заземления</span></div>
+                  <div class="checklist-item done"><span class="cl-box"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span>Тест на холостом ходу, проверка вибрации</span></div>
+                  <div class="checklist-item done"><span class="cl-box"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span>Пуск под нагрузкой, контроль параметров</span></div>
+                  <div class="checklist-item done"><span class="cl-box"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span>Инструктаж персонала клиента</span></div>
+                  <div class="checklist-item done"><span class="cl-box"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span>Фотофиксация и оформление акта</span></div>
+                </div>
+                <div class="grid-2 mt-24">
+                  <div class="photo-thumb">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13.5" r="3.5"/></svg>
+                    <span class="photo-tag">Фото объекта</span>
+                  </div>
+                  <div class="sign-pad signed">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M16 3l5 5-11 11H5v-5z"/></svg>
+                    Акт подписан на объекте
+                  </div>
+                </div>
+                <p style="margin-top:14px;font-size:13px;color:var(--green);font-weight:600">✓ Оборудование автоматически поставлено «на баланс» — паспорт создан</p>
+              </div>
+
+              <div data-install-detail="b" hidden>
+                <div class="card-title-row"><h3>Чек-лист приёмки — Компрессор КВ-12</h3></div>
+                <div class="checklist">
+                  <div class="checklist-item done"><span class="cl-box"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span>Проверка выравнивания и крепления фундамента</span></div>
+                  <div class="checklist-item done"><span class="cl-box"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span>Подключение электропитания и заземления</span></div>
+                  <div class="checklist-item done"><span class="cl-box"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span>Тест на холостом ходу, проверка вибрации</span></div>
+                  <div class="checklist-item" data-toggle style="cursor:pointer"><span class="cl-box"></span><span>Пуск под нагрузкой, контроль параметров</span></div>
+                  <div class="checklist-item" data-toggle style="cursor:pointer"><span class="cl-box"></span><span>Инструктаж персонала клиента</span></div>
+                  <div class="checklist-item" data-toggle style="cursor:pointer"><span class="cl-box"></span><span>Фотофиксация и оформление акта</span></div>
+                </div>
+                <div class="grid-2 mt-24">
+                  <div class="photo-thumb">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13.5" r="3.5"/></svg>
+                    <span class="photo-tag">Фото объекта</span>
+                  </div>
+                  <div class="sign-pad">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M16 3l5 5-11 11H5v-5z"/></svg>
+                    Ожидает подписи
+                  </div>
+                </div>
+                <p style="margin-top:14px;font-size:13px;color:var(--text-muted)">Подрядчик ООО «МонтажСервис» на объекте, приёмка в процессе</p>
+              </div>
+
+              <div data-install-detail="c" hidden>
+                <div class="card-title-row"><h3>Чек-лист приёмки — Насос ЦН-40</h3></div>
+                <div class="checklist">
+                  <div class="checklist-item" data-toggle style="cursor:pointer"><span class="cl-box"></span><span>Проверка выравнивания и крепления фундамента</span></div>
+                  <div class="checklist-item" data-toggle style="cursor:pointer"><span class="cl-box"></span><span>Подключение электропитания и заземления</span></div>
+                  <div class="checklist-item" data-toggle style="cursor:pointer"><span class="cl-box"></span><span>Тест на холостом ходу, проверка вибрации</span></div>
+                  <div class="checklist-item" data-toggle style="cursor:pointer"><span class="cl-box"></span><span>Пуск под нагрузкой, контроль параметров</span></div>
+                  <div class="checklist-item" data-toggle style="cursor:pointer"><span class="cl-box"></span><span>Инструктаж персонала клиента</span></div>
+                  <div class="checklist-item" data-toggle style="cursor:pointer"><span class="cl-box"></span><span>Фотофиксация и оформление акта</span></div>
+                </div>
+                <div class="grid-2 mt-24">
+                  <div class="photo-thumb">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13.5" r="3.5"/></svg>
+                    <span class="photo-tag">Фото появится после выезда</span>
+                  </div>
+                  <div class="sign-pad">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M16 3l5 5-11 11H5v-5z"/></svg>
+                    Монтаж ещё не начат
+                  </div>
+                </div>
+                <p style="margin-top:14px;font-size:13px;color:var(--text-muted)">Бригада №1 назначена, выезд запланирован на 28.07.2026</p>
+              </div>
+
+              <div data-install-detail="d" hidden>
+                <div class="card-title-row"><h3>Чек-лист приёмки — Компрессор КВ-8</h3></div>
+                <div class="checklist">
+                  <div class="checklist-item" data-toggle style="cursor:pointer"><span class="cl-box"></span><span>Проверка выравнивания и крепления фундамента</span></div>
+                  <div class="checklist-item" data-toggle style="cursor:pointer"><span class="cl-box"></span><span>Подключение электропитания и заземления</span></div>
+                  <div class="checklist-item" data-toggle style="cursor:pointer"><span class="cl-box"></span><span>Тест на холостом ходу, проверка вибрации</span></div>
+                  <div class="checklist-item" data-toggle style="cursor:pointer"><span class="cl-box"></span><span>Пуск под нагрузкой, контроль параметров</span></div>
+                  <div class="checklist-item" data-toggle style="cursor:pointer"><span class="cl-box"></span><span>Инструктаж персонала клиента</span></div>
+                  <div class="checklist-item" data-toggle style="cursor:pointer"><span class="cl-box"></span><span>Фотофиксация и оформление акта</span></div>
+                </div>
+                <div class="grid-2 mt-24">
+                  <div class="photo-thumb">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13.5" r="3.5"/></svg>
+                    <span class="photo-tag">Фото появится после выезда</span>
+                  </div>
+                  <div class="sign-pad">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M16 3l5 5-11 11H5v-5z"/></svg>
+                    Монтаж ещё не начат
+                  </div>
+                </div>
+                <p style="margin-top:14px;font-size:13px;color:var(--text-muted)">Бригада №2 назначена, выезд запланирован на 04.08.2026</p>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>Industrial Service Hub — демонстрационный прототип на основе бизнес-плана v3</p>
+    <p class="footer-meta">Прототип · Июль 2026</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

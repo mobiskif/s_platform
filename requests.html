@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Заявки и выездное обслуживание — Industrial Service Hub</title>
+<meta name="description" content="Приём заявок, диспетчеризация инженеров и SLA-контроль в реальном времени — модуль 3 демо-прототипа платформы.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">
+        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+      </span>
+      <span>
+        Industrial Service Hub
+        <span class="brand-sub">Демо-прототип платформы</span>
+      </span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="siteNav">
+      <a href="index.html" class="nav-link">Главная</a>
+      <a href="passport.html" class="nav-link">Паспорт оборудования</a>
+      <a href="installation.html" class="nav-link">Монтаж и ПНР</a>
+      <a href="requests.html" class="nav-link active">Заявки и сервис</a>
+      <a href="warehouse.html" class="nav-link">Склад и логистика</a>
+      <a href="analytics.html" class="nav-link">Аналитика</a>
+      <a href="rnd.html" class="nav-link">R&amp;D</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container hero-inner hero-wide">
+      <div class="breadcrumb">
+        <a href="index.html">Главная</a>
+        <span class="sep">/</span>
+        <span>Заявки и выездное обслуживание</span>
+      </div>
+      <div class="module-kicker">
+        <span class="module-icon">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v10l-3 6H7l-3-6z"/><path d="M4 14h5l1 3h4l1-3h5"/></svg>
+        </span>
+        <span class="module-index">Модуль 03 · FSM</span>
+      </div>
+      <h1>Заявки и выездное обслуживание</h1>
+      <p class="lede">Диспетчеризация инженеров по компетенциям и близости, контроль SLA в реальном времени — вместо звонков и почты.</p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="meta-grid">
+        <div class="meta-card meta-audience">
+          <div class="meta-label">
+            <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>
+            Целевая аудитория
+          </div>
+          <p>Диспетчеры, сервисные инженеры, сервисные партнёры</p>
+        </div>
+        <div class="meta-card meta-problem">
+          <div class="meta-label">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2 1 21h22z"/><path d="M12 9v5"/><path d="M12 17.5v.01"/></svg>
+            Проблема
+          </div>
+          <p>Заявки теряются в почте и звонках, нет единой истории обращений, долгая обработка рекламаций</p>
+        </div>
+        <div class="meta-card meta-value">
+          <div class="meta-label">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+            Ценность для производителя
+          </div>
+          <p>Единые стандарты обслуживания у всех партнёров, выше лояльность клиентов за счёт скорости</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Ключевые экранные элементы</span>
+        <h2>Что показывает модуль</h2>
+      </div>
+      <div class="feature-list">
+        <div class="feature-item">
+          <span class="f-check"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <p>Приём заявок из разных каналов, автоматическая диспетчеризация инженера по компетенциям и близости</p>
+        </div>
+        <div class="feature-item">
+          <span class="f-check"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <p>Мобильное приложение для инженера с офлайн-режимом: маршрут, инструкции, запчасти, акты, фото до/после</p>
+        </div>
+        <div class="feature-item">
+          <span class="f-check"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <p>Учёт SLA и гарантии, статусы в реальном времени, уведомления клиенту и производителю</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+
+      <div class="demo-block">
+        <div class="demo-block-head">
+          <h3>Демо: доска заявок</h3>
+          <span class="badge badge-cyan">Тестовые данные · нажмите на карточку</span>
+        </div>
+        <div class="demo-block-body">
+
+          <div class="kanban">
+
+            <div class="kanban-col">
+              <div class="kanban-col-head"><h4>Новая</h4><span class="kanban-count">1</span></div>
+
+              <div class="ticket is-active" data-ticket="1042">
+                <span class="ticket-id">REQ-1042</span>
+                <h5>Насос ЦН-40 не запускается</h5>
+                <p style="font-size:12.5px;color:var(--text-muted)">ООО «Северная Сталь»</p>
+                <div class="ticket-meta">
+                  <span class="sla-chip sla-risk"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>SLA: 3 ч</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="kanban-col">
+              <div class="kanban-col-head"><h4>В работе</h4><span class="kanban-count">2</span></div>
+
+              <div class="ticket" data-ticket="1041">
+                <span class="ticket-id">REQ-1041</span>
+                <h5>Утечка масла, компрессор КВ-12</h5>
+                <p style="font-size:12.5px;color:var(--text-muted)">АО «Прикамье-Хим»</p>
+                <div class="ticket-meta">
+                  <span class="sla-chip sla-warn"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>SLA: 6 ч</span>
+                  <span class="ticket-avatar"><span class="avatar-dot">АМ</span></span>
+                </div>
+              </div>
+
+              <div class="ticket" data-ticket="1038">
+                <span class="ticket-id">REQ-1038</span>
+                <h5>Плановое ТО, насос ЦН-40</h5>
+                <p style="font-size:12.5px;color:var(--text-muted)">ООО «Балтийский Литейный»</p>
+                <div class="ticket-meta">
+                  <span class="sla-chip sla-ok"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>SLA: 1 д 4 ч</span>
+                  <span class="ticket-avatar"><span class="avatar-dot">ИК</span></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="kanban-col">
+              <div class="kanban-col-head"><h4>Ожидание запчастей</h4><span class="kanban-count">1</span></div>
+
+              <div class="ticket" data-ticket="1035">
+                <span class="ticket-id">REQ-1035</span>
+                <h5>Замена подшипника</h5>
+                <p style="font-size:12.5px;color:var(--text-muted)">ИП Реутов</p>
+                <div class="ticket-meta">
+                  <span class="sla-chip sla-risk"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2 1 21h22z"/><path d="M12 9v5"/><path d="M12 17.5v.01"/></svg>Просрочен: 2 ч</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="kanban-col">
+              <div class="kanban-col-head"><h4>Завершена</h4><span class="kanban-count">2</span></div>
+
+              <div class="ticket" data-ticket="1030">
+                <span class="ticket-id">REQ-1030</span>
+                <h5>Вибрация корпуса</h5>
+                <p style="font-size:12.5px;color:var(--text-muted)">ООО «Северная Сталь»</p>
+                <div class="ticket-meta">
+                  <span class="sla-chip sla-ok"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>SLA выполнен</span>
+                </div>
+              </div>
+
+              <div class="ticket" data-ticket="1028">
+                <span class="ticket-id">REQ-1028</span>
+                <h5>Диагностика датчиков</h5>
+                <p style="font-size:12.5px;color:var(--text-muted)">АО «Прикамье-Хим»</p>
+                <div class="ticket-meta">
+                  <span class="sla-chip sla-ok"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>SLA выполнен</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="card card-pad mt-32">
+
+            <div data-ticket-detail="1042">
+              <div class="detail-grid">
+                <div class="stack">
+                  <div class="card-title-row"><h3>REQ-1042 · Насос ЦН-40 не запускается</h3><span class="badge badge-red">Новая</span></div>
+                  <div class="tag"><svg class="icon" viewBox="0 0 24 24"><path d="M12 22s7-7.5 7-12a7 7 0 0 0-14 0c0 4.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>ООО «Северная Сталь», цех №4, Челябинск</div>
+                  <div class="tag"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>Инженер: не назначен — идёт автоподбор по компетенции и близости</div>
+                  <div class="tag"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>SLA по гарантии: реакция за 4 ч, осталось 3 ч</div>
+                </div>
+                <div class="action-log">
+                  <div class="action-item">
+                    <span class="a-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M6 3h3l2 5-2.5 1.5a11 11 0 0 0 5 5L15 12l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2z"/></svg></span>
+                    <div><div class="a-time">Сегодня, 09:14</div><p>Заявка поступила по телефону от механика клиента</p></div>
+                  </div>
+                  <div class="action-item">
+                    <span class="a-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+                    <div><div class="a-time">Сегодня, 09:16</div><p>Заявка зарегистрирована, определён SLA по гарантии</p></div>
+                  </div>
+                  <div class="action-item">
+                    <span class="a-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+                    <div><div class="a-time">Сегодня, 09:17</div><p>Система подбирает свободного инженера в радиусе 80 км</p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div data-ticket-detail="1041" hidden>
+              <div class="detail-grid">
+                <div class="stack">
+                  <div class="card-title-row"><h3>REQ-1041 · Утечка масла, компрессор КВ-12</h3><span class="badge badge-orange">В работе</span></div>
+                  <div class="tag"><svg class="icon" viewBox="0 0 24 24"><path d="M12 22s7-7.5 7-12a7 7 0 0 0-14 0c0 4.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>АО «Прикамье-Хим», Пермь</div>
+                  <div class="tag"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>Инженер: А. Марков — в пути на объект</div>
+                  <div class="tag"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>SLA: осталось 6 ч</div>
+                </div>
+                <div class="action-log">
+                  <div class="action-item">
+                    <span class="a-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M6 3h3l2 5-2.5 1.5a11 11 0 0 0 5 5L15 12l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2z"/></svg></span>
+                    <div><div class="a-time">Вчера, 16:40</div><p>Заявка создана клиентом через личный кабинет</p></div>
+                  </div>
+                  <div class="action-item">
+                    <span class="a-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></span>
+                    <div><div class="a-time">Вчера, 16:52</div><p>Назначен инженер А. Марков (компетенция: компрессорное оборудование)</p></div>
+                  </div>
+                  <div class="action-item">
+                    <span class="a-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5"/><path d="M12 12v9"/></svg></span>
+                    <div><div class="a-time">Сегодня, 08:05</div><p>Со склада зарезервировано уплотнительное кольцо КВ-12-07</p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div data-ticket-detail="1038" hidden>
+              <div class="detail-grid">
+                <div class="stack">
+                  <div class="card-title-row"><h3>REQ-1038 · Плановое ТО, насос ЦН-40</h3><span class="badge badge-orange">В работе</span></div>
+                  <div class="tag"><svg class="icon" viewBox="0 0 24 24"><path d="M12 22s7-7.5 7-12a7 7 0 0 0-14 0c0 4.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>ООО «Балтийский Литейный завод», Санкт-Петербург</div>
+                  <div class="tag"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>Инженер: И. Круглов — на объекте</div>
+                  <div class="tag"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>SLA: осталось 1 д 4 ч (плановая заявка)</div>
+                </div>
+                <div class="action-log">
+                  <div class="action-item">
+                    <span class="a-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M3 10h18"/></svg></span>
+                    <div><div class="a-time">3 дня назад</div><p>Плановая заявка создана автоматически по графику ТО</p></div>
+                  </div>
+                  <div class="action-item">
+                    <span class="a-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+                    <div><div class="a-time">Сегодня, 10:00</div><p>Инженер прибыл на объект, приступил к диагностике</p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div data-ticket-detail="1035" hidden>
+              <div class="detail-grid">
+                <div class="stack">
+                  <div class="card-title-row"><h3>REQ-1035 · Замена подшипника</h3><span class="badge badge-red">Ожидание запчастей</span></div>
+                  <div class="tag"><svg class="icon" viewBox="0 0 24 24"><path d="M12 22s7-7.5 7-12a7 7 0 0 0-14 0c0 4.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>ИП Реутов, Казань</div>
+                  <div class="tag"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>Инженер: П. Седых — ожидает деталь</div>
+                  <div class="tag"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2 1 21h22z"/><path d="M12 9v5"/><path d="M12 17.5v.01"/></svg>SLA просрочен на 2 ч — на региональном складе детали нет</div>
+                </div>
+                <div class="action-log">
+                  <div class="action-item">
+                    <span class="a-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+                    <div><div class="a-time">2 дня назад</div><p>Диагностика на месте подтвердила износ подшипника</p></div>
+                  </div>
+                  <div class="action-item">
+                    <span class="a-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5"/><path d="M12 12v9"/></svg></span>
+                    <div><div class="a-time">Вчера, 14:20</div><p>Деталь заказана с центрального склада, ожидается доставка</p></div>
+                  </div>
+                  <div class="action-item">
+                    <span class="a-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2 1 21h22z"/><path d="M12 9v5"/><path d="M12 17.5v.01"/></svg></span>
+                    <div><div class="a-time">Сегодня, 07:00</div><p>SLA просрочен, клиент и производитель уведомлены автоматически</p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div data-ticket-detail="1030" hidden>
+              <div class="detail-grid">
+                <div class="stack">
+                  <div class="card-title-row"><h3>REQ-1030 · Вибрация корпуса</h3><span class="badge badge-green">Завершена</span></div>
+                  <div class="tag"><svg class="icon" viewBox="0 0 24 24"><path d="M12 22s7-7.5 7-12a7 7 0 0 0-14 0c0 4.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>ООО «Северная Сталь», Челябинск</div>
+                  <div class="tag"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>Инженер: И. Круглов</div>
+                  <div class="tag"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>SLA выполнен, акт подписан клиентом</div>
+                </div>
+                <div class="action-log">
+                  <div class="action-item">
+                    <span class="a-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+                    <div><div class="a-time">27.08.2024</div><p>Заменён подшипник, вибрация в норме, акт подписан</p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div data-ticket-detail="1028" hidden>
+              <div class="detail-grid">
+                <div class="stack">
+                  <div class="card-title-row"><h3>REQ-1028 · Диагностика датчиков</h3><span class="badge badge-green">Завершена</span></div>
+                  <div class="tag"><svg class="icon" viewBox="0 0 24 24"><path d="M12 22s7-7.5 7-12a7 7 0 0 0-14 0c0 4.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>АО «Прикамье-Хим», Пермь</div>
+                  <div class="tag"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>Инженер: А. Марков</div>
+                  <div class="tag"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>SLA выполнен, показания датчиков в норме</div>
+                </div>
+                <div class="action-log">
+                  <div class="action-item">
+                    <span class="a-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+                    <div><div class="a-time">15.06.2026</div><p>Диагностика завершена, отчёт передан клиенту</p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>Industrial Service Hub — демонстрационный прототип на основе бизнес-плана v3</p>
+    <p class="footer-meta">Прототип · Июль 2026</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
