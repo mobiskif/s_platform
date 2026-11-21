@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ришельё</string>
+    <string name="hint">Напишите, что произнесёт кардинал…</string>
+    <string name="greeting">Я — кардинал Ришельё. Напишите любые слова, и я произнесу их своим голосом. Коснитесь сообщения, чтобы услышать его снова.</string>
+    <string name="settings">Голос</string>
+    <string name="pitch">Тембр (ниже — внушительнее)</string>
+    <string name="rate">Темп речи</string>
+    <string name="tts_settings">Системные настройки голоса…</string>
+    <string name="ok">Готово</string>
+    <string name="tts_fail">Синтез речи недоступен. Установите движок TTS (например, «Службы речи Google») в настройках Android.</string>
+    <string name="lang_missing">Для этого языка не установлен голос. Добавьте его в системных настройках синтеза речи.</string>
+</resources>
