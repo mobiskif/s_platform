@@ -7,7 +7,7 @@ from PIL import Image, ImageDraw
 
 txt, res = sys.argv[1], sys.argv[2]
 S = 768
-s = svg(txt, 0, 0, crop='38 12 124 124')
+s = svg(txt, 0, 0, crop='36 30 128 128')
 js = """const {chromium}=require('playwright');(async()=>{const b=await chromium.launch();const p=await b.newPage({viewport:{width:%d,height:%d}});
 await p.setContent('<body style="margin:0">'+%s.replace('<svg','<svg width="%d" height="%d"')+'</body>');await p.screenshot({path:'/tmp/_icon.png'});await b.close()})()""" % (S, S, repr(s), S, S)
 f = tempfile.NamedTemporaryFile('w', suffix='.js', delete=False, dir='/tmp'); f.write(js); f.close()

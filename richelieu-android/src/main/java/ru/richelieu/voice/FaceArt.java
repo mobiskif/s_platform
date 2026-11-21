@@ -1,6 +1,8 @@
 package ru.richelieu.voice;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
@@ -24,6 +26,18 @@ final class FaceArt {
 
     final List<Layer> layers = new ArrayList<Layer>();
 
+    /** Параметры анимируемого фото-лица (строка photo в richelieu.txt); null — рисованное лицо без фото. */
+    static final class Photo {
+        Bitmap bmp;
+        float bx, by, u;            // положение (ед. холста) и размер пикселя растра в единицах холста
+        float mouthY, mouthX, cornerL, cornerR;
+        float eyeLx, eyeLy, eyeRx, eyeRy, eyeW, eyeH;
+        int skin, lid;
+        int layerIndex;             // фото рисуется перед слоем с этим индексом
+    }
+
+    Photo photo;
+
     static FaceArt load(Context ctx) {
         FaceArt art = new FaceArt();
         BufferedReader r = null;
@@ -35,6 +49,10 @@ final class FaceArt {
                 if (line.length() == 0) continue;
                 String[] p = line.split("\\|");
                 if (p.length < 6) continue;
+                if (p[0].equals("photo")) {
+                    art.photo = parsePhoto(ctx, p[5], art.layers.size());
+                    continue;
+                }
                 Layer l = new Layer();
                 l.group = p[0];
                 int alpha = Math.round(Float.parseFloat(p[2]) * 255f);
@@ -67,6 +85,43 @@ final class FaceArt {
             }
         }
         return art;
+    }
+
+    private static Photo parsePhoto(Context ctx, String spec, int index) {
+        Photo ph = new Photo();
+        ph.layerIndex = index;
+        for (String kv : spec.trim().split("\\s+")) {
+            String[] a = kv.split("=");
+            String k = a[0], v = a[1];
+            if (k.equals("skin")) ph.skin = Color.parseColor(v);
+            else if (k.equals("lid")) ph.lid = Color.parseColor(v);
+            else if (k.equals("eyeL")) { String[] c = v.split(","); ph.eyeLx = f(c[0]); ph.eyeLy = f(c[1]); }
+            else if (k.equals("eyeR")) { String[] c = v.split(","); ph.eyeRx = f(c[0]); ph.eyeRy = f(c[1]); }
+            else if (k.equals("bx")) ph.bx = f(v);
+            else if (k.equals("by")) ph.by = f(v);
+            else if (k.equals("u")) ph.u = f(v);
+            else if (k.equals("mouthY")) ph.mouthY = f(v);
+            else if (k.equals("mouthX")) ph.mouthX = f(v);
+            else if (k.equals("cornerL")) ph.cornerL = f(v);
+            else if (k.equals("cornerR")) ph.cornerR = f(v);
+            else if (k.equals("eyeRx")) ph.eyeW = f(v);
+            else if (k.equals("eyeRy")) ph.eyeH = f(v);
+        }
+        InputStream in = null;
+        try {
+            in = ctx.getAssets().open("face.png");
+            ph.bmp = BitmapFactory.decodeStream(in);
+        } catch (IOException e) {
+            return null; // нет фото — рисуем без него
+        } finally {
+            if (in != null) {
+                try {
+                    in.close();
+                } catch (IOException ignored) {
+                }
+            }
+        }
+        return ph;
     }
 
     /** Путь из абсолютных команд M L C Q Z, разделённых пробелами. */

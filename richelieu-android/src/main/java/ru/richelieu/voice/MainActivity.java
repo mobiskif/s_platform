@@ -9,6 +9,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
+import android.speech.tts.Voice;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,10 +23,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 /** Чат: что бы вы ни написали, кардинал Ришельё произнесёт это своим (синтезированным) голосом. */
@@ -52,14 +56,15 @@ public class MainActivity extends Activity {
     private final Map<String, String> chunkText = new HashMap<String, String>();
     private int counter;
     private volatile boolean speaking;
+    private Locale lastLocale = new Locale("ru", "RU");
 
     @Override
     protected void onCreate(Bundle b) {
         super.onCreate(b);
         setContentView(R.layout.activity_main);
         prefs = getSharedPreferences("voice", MODE_PRIVATE);
-        pitch = prefs.getFloat("pitch", 0.6f);
-        rate = prefs.getFloat("rate", 0.85f);
+        pitch = prefs.getFloat("pitch", 0.55f);
+        rate = prefs.getFloat("rate", 0.9f);
 
         face = (RichelieuView) findViewById(R.id.face);
         face.setSpeechRate(rate);
@@ -187,9 +192,11 @@ public class MainActivity extends Activity {
         if (r == TextToSpeech.LANG_MISSING_DATA || r == TextToSpeech.LANG_NOT_SUPPORTED) {
             Toast.makeText(this, R.string.lang_missing, Toast.LENGTH_LONG).show();
         }
+        applySavedVoice(loc);
         tts.setPitch(pitch);
         tts.setSpeechRate(rate);
         face.setSpeechRate(rate);
+        lastLocale = loc;
 
         List<String> chunks = split(text);
         List<String> ids = new ArrayList<String>();
@@ -204,6 +211,43 @@ public class MainActivity extends Activity {
         for (int i = 0; i < chunks.size(); i++) {
             tts.speak(chunks.get(i), i == 0 ? TextToSpeech.QUEUE_FLUSH : TextToSpeech.QUEUE_ADD, null, ids.get(i));
         }
+    }
+
+    /** Установленные голоса для языка, по имени (стабильный порядок для переключения). */
+    private List<Voice> voicesFor(Locale loc) {
+        List<Voice> list = new ArrayList<Voice>();
+        try {
+            Set<Voice> all = tts.getVoices();
+            if (all != null) {
+                for (Voice v : all) {
+                    if (v.getLocale().getLanguage().equals(loc.getLanguage())) list.add(v);
+                }
+            }
+        } catch (Exception ignored) {
+        }
+        Collections.sort(list, new Comparator<Voice>() {
+            @Override
+            public int compare(Voice a, Voice b) {
+                return a.getName().compareTo(b.getName());
+            }
+        });
+        return list;
+    }
+
+    private void applySavedVoice(Locale loc) {
+        String name = prefs.getString("voice_" + loc.getLanguage(), null);
+        if (name == null) return;
+        for (Voice v : voicesFor(loc)) {
+            if (v.getName().equals(name)) {
+                tts.setVoice(v);
+                return;
+            }
+        }
+    }
+
+    private String currentVoiceName(Locale loc) {
+        String name = prefs.getString("voice_" + loc.getLanguage(), null);
+        return name != null ? name : getString(R.string.voice_default);
     }
 
     private void stopSpeaking() {
@@ -273,6 +317,33 @@ public class MainActivity extends Activity {
         rateBar.setProgress(Math.round((rate - 0.5f) * 100f));
         box.addView(rateBar);
 
+        final TextView voiceBtn = label(getString(R.string.voice_label, currentVoiceName(lastLocale)));
+        voiceBtn.setTextColor(0xFFE2BB45);
+        voiceBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!ttsReady) return;
+                List<Voice> list = voicesFor(lastLocale);
+                if (list.isEmpty()) {
+                    Toast.makeText(MainActivity.this, R.string.lang_missing, Toast.LENGTH_LONG).show();
+                    return;
+                }
+                String cur = prefs.getString("voice_" + lastLocale.getLanguage(), null);
+                int idx = -1;
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i).getName().equals(cur)) idx = i;
+                }
+                Voice next = list.get((idx + 1) % list.size());
+                prefs.edit().putString("voice_" + lastLocale.getLanguage(), next.getName()).apply();
+                voiceBtn.setText(getString(R.string.voice_label, next.getName()));
+                tts.setVoice(next);
+                tts.setPitch(0.3f + pitchBar.getProgress() / 100f);
+                tts.setSpeechRate(0.5f + rateBar.getProgress() / 100f);
+                tts.speak(getString(R.string.sample), TextToSpeech.QUEUE_FLUSH, null, "sample");
+            }
+        });
+        box.addView(voiceBtn);
+
         TextView sys = label(getString(R.string.tts_settings));
         sys.setTextColor(0xFFE2BB45);
         sys.setPadding(0, pad / 2, 0, pad / 2);
@@ -297,7 +368,7 @@ public class MainActivity extends Activity {
                         pitch = 0.3f + pitchBar.getProgress() / 100f;
                         rate = 0.5f + rateBar.getProgress() / 100f;
                         prefs.edit().putFloat("pitch", pitch).putFloat("rate", rate).apply();
-                        speak(getString(R.string.greeting).split("\\.")[0] + ".");
+                        speak(getString(R.string.sample));
                     }
                 })
                 .show();

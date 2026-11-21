@@ -1,7 +1,12 @@
 package ru.richelieu.voice;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.RadialGradient;
+import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -19,7 +24,18 @@ public class RichelieuView extends View {
     private static final float JAW_DROP = 7f;
     private static final int BG = 0xFF240910;
 
+    private static final float JAW_PX = 40f;   // макс. раскрытие челюсти, пикселей растра фото
+    private static final int MESH_STEP = 6;     // шаг сетки деформации, пикселей растра
+
     private final FaceArt art;
+    private final Paint bmpPaint = new Paint(Paint.FILTER_BITMAP_FLAG | Paint.ANTI_ALIAS_FLAG);
+    private final Paint cavPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    private final Paint lidPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    private final Paint lashPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    private final Path cav = new Path();
+    private final Path lash = new Path();
+    private float[] mesh, meshHx, meshW;
+    private int meshCols, meshRows;
     private final Random rnd = new Random();
 
     private boolean speaking;
@@ -36,6 +52,12 @@ public class RichelieuView extends View {
     public RichelieuView(Context c, AttributeSet a) {
         super(c, a);
         art = FaceArt.load(c);
+        lashPaint.setStyle(Paint.Style.STROKE);
+        lashPaint.setStrokeCap(Paint.Cap.ROUND);
+        lashPaint.setStrokeWidth(2f);
+        lashPaint.setColor(0xFF3A2A24);
+        lidPaint.setStyle(Paint.Style.FILL);
+        if (art.photo != null) initMesh(art.photo);
         nextBlink = now() + 1500;
     }
 
@@ -96,7 +118,10 @@ public class RichelieuView extends View {
         canvas.translate(0f, bob * 1.2f);
         canvas.rotate(bob * 0.6f, 100f, 170f);
 
-        for (FaceArt.Layer l : art.layers) {
+        for (int li = 0; li <= art.layers.size(); li++) {
+            if (art.photo != null && li == art.photo.layerIndex) drawPhoto(canvas, art.photo);
+            if (li == art.layers.size()) break;
+            FaceArt.Layer l = art.layers.get(li);
             canvas.save();
             if (l.group.equals("brows")) {
                 canvas.translate(0f, -3.2f * brow - 0.8f * (speaking ? energy : 0f));
@@ -122,6 +147,96 @@ public class RichelieuView extends View {
         canvas.restore();
 
         postInvalidateOnAnimation(); // непрерывная анимация: моргание идёт и в покое
+    }
+
+    // ------------------------------------------------------------------ фото-лицо
+
+    private static float smooth(float t) {
+        t = t < 0f ? 0f : (t > 1f ? 1f : t);
+        return t * t * (3f - 2f * t);
+    }
+
+    private void initMesh(FaceArt.Photo ph) {
+        int w = ph.bmp.getWidth(), h = ph.bmp.getHeight();
+        meshCols = Math.max(1, w / MESH_STEP);
+        meshRows = Math.max(1, h / MESH_STEP);
+        mesh = new float[(meshCols + 1) * (meshRows + 1) * 2];
+        meshHx = new float[meshCols + 1];
+        meshW = new float[meshRows + 1];
+        for (int c = 0; c <= meshCols; c++) {
+            float dx = (c * (float) w / meshCols - ph.mouthX) / 190f;
+            meshHx[c] = (float) Math.exp(-dx * dx);          // затухание к краям лица
+        }
+        for (int r = 0; r <= meshRows; r++) {
+            float y = r * (float) h / meshRows;
+            meshW[r] = smooth((y - (ph.mouthY - 6f)) / 12f);  // 0 — выше губ, 1 — ниже
+        }
+    }
+
+    /** Лицо: нижняя часть (ниже линии губ) опускается, между губами — полость рта; веки; моргание. */
+    private void drawPhoto(Canvas c, FaceArt.Photo ph) {
+        Bitmap bmp = ph.bmp;
+        float w = bmp.getWidth(), h = bmp.getHeight();
+        float d = JAW_PX * mouth;
+        c.save();
+        c.translate(ph.bx, ph.by);
+        c.scale(ph.u, ph.u);
+
+        if (d < 0.4f) {
+            c.drawBitmap(bmp, 0f, 0f, bmpPaint);
+        } else {
+            int k = 0;
+            for (int r = 0; r <= meshRows; r++) {
+                float y = r * h / meshRows;
+                for (int col = 0; col <= meshCols; col++) {
+                    mesh[k++] = col * w / meshCols;
+                    mesh[k++] = y + d * meshW[r] * meshHx[col];
+                }
+            }
+            c.drawBitmapMesh(bmp, meshCols, meshRows, mesh, 0, null, 0, bmpPaint);
+
+            float ym = ph.mouthY, mx = ph.mouthX;
+            float bot = ym + d + 6f;
+            float cy2 = ym + (bot - ym) * 1.33f;
+            cav.reset();
+            cav.moveTo(ph.cornerL + 4f, ym);
+            cav.quadTo(mx, ym - 5f, ph.cornerR - 4f, ym);
+            cav.cubicTo(ph.cornerR - 12f, cy2, ph.cornerL + 12f, cy2, ph.cornerL + 4f, ym);
+            cav.close();
+            cavPaint.setStyle(Paint.Style.FILL);
+            cavPaint.setColor(0xFF3A0C10);
+            c.drawPath(cav, cavPaint);
+            cavPaint.setColor(0xD9D9CDB5);   // верхние зубы
+            c.drawRoundRect(mx - 18f, ym - 2f, mx + 58f, ym + 1f + Math.min(d * 0.2f, 6f), 3f, 3f, cavPaint);
+            cavPaint.setColor(0xE6A94A4A);   // язык
+            c.drawOval(mx - 36f, ym + d * 0.72f - d * 0.24f, mx + 36f, ym + d * 0.72f + d * 0.24f, cavPaint);
+        }
+
+        if (blink > 0.02f) {
+            drawLid(c, ph, ph.eyeLx, ph.eyeLy);
+            drawLid(c, ph, ph.eyeRx, ph.eyeRy);
+        }
+        c.restore();
+    }
+
+    private void drawLid(Canvas c, FaceArt.Photo ph, float ex, float ey) {
+        float rx = ph.eyeW, ry = ph.eyeH, hh = ry * blink;
+        int solid = (ph.lid & 0x00FFFFFF) | 0xF2000000;
+        int clear = ph.lid & 0x00FFFFFF;
+        lidPaint.setShader(new RadialGradient(0f, 0f, 1f, new int[]{solid, solid, clear},
+                new float[]{0f, 0.72f, 1f}, Shader.TileMode.CLAMP));
+        c.save();
+        c.translate(ex, ey - ry + hh);
+        c.scale(rx * 1.12f, Math.max(0.01f, hh * 1.12f));
+        c.drawCircle(0f, 0f, 1f, lidPaint);
+        c.restore();
+        if (blink > 0.5f) {
+            float y = ey - ry + 2f * hh;
+            lash.reset();
+            lash.moveTo(ex - rx * 0.85f, y);
+            lash.quadTo(ex, y + 3f, ex + rx * 0.85f, y);
+            c.drawPath(lash, lashPaint);
+        }
     }
 
     private void update(long t, float dt) {

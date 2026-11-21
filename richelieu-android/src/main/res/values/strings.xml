@@ -10,4 +10,7 @@
     <string name="ok">Готово</string>
     <string name="tts_fail">Синтез речи недоступен. Установите движок TTS (например, «Службы речи Google») в настройках Android.</string>
     <string name="lang_missing">Для этого языка не установлен голос. Добавьте его в системных настройках синтеза речи.</string>
+    <string name="voice_label">Голос: %1$s (нажмите, чтобы сменить)</string>
+    <string name="voice_default">по умолчанию</string>
+    <string name="sample">Я — кардинал Ришельё. Государство — это я.</string>
 </resources>
