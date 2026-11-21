@@ -32,14 +32,14 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-/** Чат: что бы вы ни написали, кардинал Ришельё произнесёт это своим (синтезированным) голосом. */
+/** Чат: что бы вы ни написали, говорящее фото произнесёт это синтезированным голосом. */
 public class MainActivity extends Activity {
 
     private static final int MAX_CHUNK = 280;
     private static final Pattern FRENCH = Pattern.compile("[éèêëàâçîïôùûœ]|\\b(le|la|les|un|une|des|et|je|vous|nous|est|que|pour|dans|monsieur)\\b",
             Pattern.CASE_INSENSITIVE);
 
-    private RichelieuView face;
+    private AvatarView face;
     private ListView chat;
     private EditText input;
     private TextView sendBtn;
@@ -66,7 +66,7 @@ public class MainActivity extends Activity {
         pitch = prefs.getFloat("pitch", 0.55f);
         rate = prefs.getFloat("rate", 0.9f);
 
-        face = (RichelieuView) findViewById(R.id.face);
+        face = (AvatarView) findViewById(R.id.face);
         face.setSpeechRate(rate);
         chat = (ListView) findViewById(R.id.chat);
         input = (EditText) findViewById(R.id.input);
@@ -318,7 +318,7 @@ public class MainActivity extends Activity {
         box.addView(rateBar);
 
         final TextView voiceBtn = label(getString(R.string.voice_label, currentVoiceName(lastLocale)));
-        voiceBtn.setTextColor(0xFFE2BB45);
+        voiceBtn.setTextColor(0xFF8EC5FF);
         voiceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -345,7 +345,7 @@ public class MainActivity extends Activity {
         box.addView(voiceBtn);
 
         TextView sys = label(getString(R.string.tts_settings));
-        sys.setTextColor(0xFFE2BB45);
+        sys.setTextColor(0xFF8EC5FF);
         sys.setPadding(0, pad / 2, 0, pad / 2);
         sys.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -413,13 +413,13 @@ public class MainActivity extends Activity {
             TextView tv = new TextView(MainActivity.this);
             tv.setText(m[1]);
             tv.setTextSize(16);
-            tv.setTextColor(0xFFF8F3E8);
+            tv.setTextColor(0xFFEAF2FA);
             tv.setMaxWidth((int) (getResources().getDisplayMetrics().widthPixels * 0.82f));
             tv.setPadding((int) (14 * d), (int) (9 * d), (int) (14 * d), (int) (9 * d));
             GradientDrawable bg = new GradientDrawable();
-            bg.setColor(mine ? 0xFFB5121B : 0xFF3d1a24);
+            bg.setColor(mine ? 0xFF2F6FB3 : 0xFF2A3846);
             bg.setCornerRadius(18 * d);
-            if (!mine) bg.setStroke((int) d, 0x66E2BB45);
+            if (!mine) bg.setStroke((int) d, 0x668EC5FF);
             tv.setBackground(bg);
             row.addView(tv);
             return row;

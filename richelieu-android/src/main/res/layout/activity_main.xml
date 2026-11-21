@@ -10,7 +10,7 @@
         android:layout_height="0dp"
         android:layout_weight="5">
 
-        <ru.richelieu.voice.RichelieuView
+        <ru.richelieu.voice.AvatarView
             android:id="@+id/face"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -27,7 +27,7 @@
             android:paddingRight="14dp"
             android:paddingTop="6dp"
             android:text="@string/settings"
-            android:textColor="#F3EEE2"
+            android:textColor="#EAF2FA"
             android:textSize="14sp" />
     </FrameLayout>
 
@@ -62,8 +62,8 @@
             android:hint="@string/hint"
             android:inputType="textCapSentences|textMultiLine"
             android:maxLines="4"
-            android:textColor="#F3EEE2"
-            android:textColorHint="#9a7f84" />
+            android:textColor="#EAF2FA"
+            android:textColorHint="#7f93a6" />
 
         <TextView
             android:id="@+id/btn_send"

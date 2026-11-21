@@ -10,7 +10,6 @@ OUT=build
 rm -rf "$OUT/gen" "$OUT/classes" "$OUT/dex" "$OUT"/*.apk
 mkdir -p "$OUT/gen" "$OUT/classes" "$OUT/dex"
 
-python3 art/make_art.py src/main/assets/richelieu.txt
 
 # 1. R.java
 aapt package -f -m -J "$OUT/gen" -M src/main/AndroidManifest.xml -S src/main/res -I "$ANDROID_JAR"

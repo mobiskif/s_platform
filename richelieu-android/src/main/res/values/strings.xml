@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Ришельё</string>
-    <string name="hint">Напишите, что произнесёт кардинал…</string>
-    <string name="greeting">Я — кардинал Ришельё. Напишите любые слова, и я произнесу их своим голосом. Коснитесь сообщения, чтобы услышать его снова.</string>
+    <string name="app_name">Живое фото</string>
+    <string name="hint">Напишите, что я произнесу…</string>
+    <string name="greeting">Напишите любой текст, и я произнесу его. Коснитесь сообщения, чтобы услышать его снова.</string>
     <string name="settings">Голос</string>
-    <string name="pitch">Тембр (ниже — внушительнее)</string>
+    <string name="pitch">Тембр (ниже — глубже голос)</string>
     <string name="rate">Темп речи</string>
     <string name="tts_settings">Системные настройки голоса…</string>
     <string name="ok">Готово</string>
@@ -12,5 +12,5 @@
     <string name="lang_missing">Для этого языка не установлен голос. Добавьте его в системных настройках синтеза речи.</string>
     <string name="voice_label">Голос: %1$s (нажмите, чтобы сменить)</string>
     <string name="voice_default">по умолчанию</string>
-    <string name="sample">Я — кардинал Ришельё. Государство — это я.</string>
+    <string name="sample">Здравствуйте! Это говорящее фото.</string>
 </resources>
